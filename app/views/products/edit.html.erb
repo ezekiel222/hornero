@@ -1,0 +1,13 @@
+<h1>Editing Product</h1>
+
+<%= form_for @product do |f| %>
+
+<%= f.text_field :name %><br>
+
+<%= f.number_field :price %> <br>
+
+<%= f.text_area :description %>
+
+<%= f.submit "Editar" %>
+
+<% end %>
