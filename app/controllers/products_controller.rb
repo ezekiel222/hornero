@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = Product.left_joins(:favorite_products).group(:id).order("COUNT(products.user_id) DESC").uniq
   end
 
   # GET /products/1
@@ -14,6 +14,7 @@ class ProductsController < ApplicationController
     type = params[:type]
     if type == "favorite"
       current_user.favorites << @product
+      redirect_to home_carrito_path, notice: 'You favorited #{@recipe.name}'
 
     elsif type == "unfavorite"
       current_user.favorites.delete(@product)

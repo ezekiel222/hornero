@@ -15,3 +15,94 @@
  */
 
  @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+
+a:hover{
+  text-decoration: none;
+}
+.card-price{
+  color: gray;
+}
+.card-body{
+  border: none;
+}
+.card-title {
+  color: #000;
+}
+.cd a:hover{
+  text-decoration: none;
+}
+.card1:hover{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card1{
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border-radius: .25rem;
+    text-align: center;
+}
+.list-group a{
+  color: black;
+}
+.list-group a:hover{
+  text-decoration: none;
+  color: gray;
+}
+.row .titulo {
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 2%;
+  font-size: 25px;
+}
+.row .precio{
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 2%;
+  color:gray;
+}
+
+.row .carro{
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 2%;
+  background-color: orange;
+  color: #FFE;
+  border-radius: 10px;
+  padding: 1.5%;
+  text-align: center;
+  width: max-content;
+}
+.row .carro:hover{
+  text-decoration: none;
+  background-color: #d08701
+}
+.row .carro-ds{
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 2%;
+  background-color: #f9daa2;
+  color: #FFE;
+  border-radius: 10px;
+  padding: 1.5%;
+  text-align: center;
+  width: max-content;
+}
+.row .carro-ds:hover{
+  text-decoration: none;
+}
+.row .descripcion{
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 5%;
+  color: #939ba2;
+  text-align: center;
+}

@@ -1,24 +1,71 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-<%= @product.name %>
-</p>
-<%= image_tag @product.photo.url, style:"padding:5% 0; width:320px" %>
-<%= image_tag @product.photo1.url, style:"padding:5% 0; width:320px" %>
-<%= image_tag @product.photo2.url, style:"padding:5% 0; width:320px" %>
+<div class="container">
 
-<br><%= @product.category.name %><br>
-<%= @product.material.name %><br>
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+  <div class="row">
 
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-  <%= link_to "Añadir al carrito", favorite_product_path(@product, type: "favorite"), method: :put %>
-</p>
+    <div class="col-lg-9" style="margin-left:auto; margin-right:auto; width:auto">
 
-<%= link_to 'Edit', edit_product_path(@product) %>
+      <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel" style="width: fit-content; margin-left:auto; margin-right:auto" >
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox" style="margin-left:auto; margin-right:auto; width:fit-content">
+          <div class="carousel-item active">
+            <%= image_tag @product.photo.url(:medium), class:"d-block" , style:"height:150px;" %>
+          </div>
+
+          <div class="carousel-item">
+            <% if @product.photo1.present? %>
+              <%= image_tag @product.photo1.url(:medium),class:"d-block" , style:"height:150px;"%>
+
+            <!-- <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide"> -->
+          </div>
+            <% end %>
+
+            <div class="carousel-item">
+              <% if @product.photo2.present? %>
+                <%= image_tag @product.photo2.url(:medium),class:"d-block " , style:"height:150px;"%>
+
+              <!-- <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide"> -->
+            </div>
+              <% end %>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+      <div class="row">
+        <h1 class="titulo"><%= @product.name %></h1><br>
+      </div>
+      <div class="row">
+        <h1 class="precio">$<%= @product.price.round %></h1>
+      </div>
+      <div class="row">
+        <% if current_user %>
+        <% if current_user.id.in?(@product.favorited_by.ids) %>
+        <%= link_to "Ya comprado", "", class:"carro-ds" %>
+        <% elsif current_user.id.in?(@product.favorited_by.ids) == false %>
+        <%= link_to "Añadir al carrito", favorite_product_path(@product, type: "favorite"), method: :put, class:"carro" %>
+        <% end %>
+        <% else %>
+        <%= link_to "Añadir al carrito", new_user_registration_path, class:"carro" %>
+        <% end %>
+      </div>
+      <div class="row">
+        <p class="descripcion"><%= @product.description %><br>Esta realizada con: <strong><%= @product.material.name %></strong></p>
+      </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
