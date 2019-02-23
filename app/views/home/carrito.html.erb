@@ -1,1 +1,30 @@
+<% if !current_user %>
+<div class="carrit">
+  <h2>Registrate para empezar a comprar!</h2><br><br>
+    <%= link_to "Registrarse Gratis", new_user_registration_path, class:"carro" %>
+</div>
 
+<% elsif current_user.favorites.length == 0 %>
+<div class="carrit">
+  <h2>Todavia no has comprado nada</h2><br><br>
+    <%= link_to "Buscar productos", products_path, class:"carro" %>
+</div>
+
+<% else %>
+    <ul class="car">
+      <% @product = current_user.favorites %>
+      <% @product.each do |f| %>
+      <li>
+        <%= link_to f  do %>
+        <%= image_tag f.photo.url(:medium), size:"100x50" %>
+        <% end %>
+        <h3>$<%= f.price.round %></h3>
+        <%= link_to "Quitar", favorite_product_path(f, type: "unfavorite"), method: :put %>
+      </li>
+      <% end %>
+      <div class="total">
+        <h5>Total a pagar:</h5><h3>$<%= @product.sum(:price) %></h3>
+      </div>
+    </ul>
+
+<% end %>

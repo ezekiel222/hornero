@@ -1,26 +1,44 @@
-<h2>Registrarse</h2>
+<div class="registro">
+  <h6 class="reg-titulo">Registrate para empezar a comprar!</h6>
+<form class="simple_form new_user" id="new_user" novalidate="novalidate" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+    <div class="inputs">
 
-  <div class="form-inputs">
-    <%= f.input :name,
-                required: true,
-                autofocus: true %>
-    <%= f.input :sirname,
-                required: true %>
-    <%= f.input :email,
-                required: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-  </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Registrarse" %>
-  </div>
-<% end %>
+
+          <input placeholder="Nombre" class="reg-input in1" autofocus="autofocus" required="required" aria-required="true" type="text" name="user[name]" id="user_name">
+
+
+
+        <input placeholder="Apellido" class="reg-input in1" required="required" aria-required="true" type="text" name="user[sirname]" id="user_sirname">
+
+
+
+
+          <input placeholder="Email" autocomplete="email" class="reg-input in1" required="required" aria-required="true" type="email" value="" name="user[email]" id="user_email">
+        </div>
+  
+
+
+          <input autocomplete="new-password" pattern=".{6,}" class="reg-input in1" required="required" aria-required="true" placeholder="Contraseña" type="password" name="user[password]" id="user_password">
+
+
+
+          <input placeholder="Confirmar contraseña" autocomplete="new-password"  class="reg-input in2" required="required" aria-required="true" type="password" name="user[password_confirmation]" id="user_password_confirmation">
+          <script type="text/javascript">
+            $('#user_password, #user_password_confirmation').on('keyup', function () {
+              if ($('#user_password').val() == $('#user_password_confirmation').val()) {
+                $('#user_password_confirmation').css('border-color', '#b8f5b8');
+              } else
+                $('#user_password_confirmation').css('border-color', '#e0e0e0');
+            });
+          </script>
+
+        <p>Todos las casilleros deben estar en verde</p>
+        <input type="submit" name="commit" value="Registrarse" class="reg-btn" data-disable-with="Registrarse">
+        <br><br><%= link_to "Ya estoy registrado", new_user_session_path, style:"color:orange" %>
+    </div>
+
+
+</form></div>

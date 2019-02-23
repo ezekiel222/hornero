@@ -4,6 +4,7 @@ en:
     labels:
       defaults:
         username: 'Usuario'
+        error: 'Hubo un error, por favor revise.'
         password: 'Contraseña'
         password_confirmation: 'Confirmar contraseña'
         remember_me: 'Recordarme'

@@ -70,7 +70,7 @@ a:hover{
   color:gray;
 }
 
-.row .carro{
+.carro{
   margin-left:auto;
   margin-right:auto;
   margin-top: 2%;
@@ -81,7 +81,7 @@ a:hover{
   text-align: center;
   width: max-content;
 }
-.row .carro:hover{
+.carro:hover{
   text-decoration: none;
   background-color: #d08701
 }
@@ -105,4 +105,96 @@ a:hover{
   margin-top: 5%;
   color: #939ba2;
   text-align: center;
+}
+.registro{
+  margin-left: auto;
+  margin-right: auto;
+  width: min-content;
+  text-align: center;
+  margin-top: 1.5%;
+  padding: 3%;
+  border-radius: 10px;
+  background-color: #fbfbfbe8;
+}
+.inputs{
+  text-align: center;
+}
+.reg-input{
+  margin-bottom: 10%;
+  border-radius: 5px;
+  border-color: #e0e0e0;
+  border-style: solid;
+  border-width: medium;
+  background-color: #fff;
+  text-align: center;
+  color: gray;
+  font-style: italic;
+}
+.inputs p{
+  font-size: 11px;
+  color: green
+}
+.in1:valid{
+  border-color: #b8f5b8;
+  outline: none;
+}
+.in2{
+  outline: none;
+}
+.registro label{
+  font-size: 10px;
+}
+.reg-titulo{
+  margin-bottom: 10%;
+  font-size: 20px;
+}
+.reg-btn{
+  background-color: orange;
+  border: none;
+  padding: 2%;
+  color: #fff;
+  border-radius: 5px;
+}
+.reg-btn:hover{
+  cursor: pointer;
+  background-color: #d28800;
+}
+.carrit{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 3%;
+}
+.car li{
+  list-style: none;
+  display: inline-flex;
+  text-align: center;
+  padding: 1%;
+}
+.car li h3{
+  margin-top: 10%;
+  margin-left: 10%;
+  color: gray;
+}
+.car{
+  margin-top: 5%;
+  margin-right: auto;
+
+}
+.total{
+  margin-left: auto;
+  padding: 0% 3%;
+  color: black;
+  margin-top: 20px;;
+  margin-right: auto;
+  text-align: center;
+  width: fit-content;
+}
+.car a:hover{
+  opacity: 0.5;
+}
+.car li a{
+  margin-top: 10%;
+  margin-left: 10%;
+  color: red;
 }
