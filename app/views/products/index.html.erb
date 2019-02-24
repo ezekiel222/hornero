@@ -6,6 +6,11 @@
 
     <div class="col-lg-9" style="margin-left:auto; margin-right:auto">
 
+            <form id="search-form" action="/products" accept-charset="UTF-8" method="get" class="form-inline my-2 my-lg-0" style="padding: 20px; width: fit-content; margin-left:auto; margin-right:auto;">
+          <input name="utf8" type="hidden" value="✓">
+          <input type="text" name="search" id="search" placeholder="Buscar un producto" class="form-control mr-sm-2" style="text-align:center">
+          </form>
+
       <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel" style="width: fit-content; margin-left:auto; margin-right:auto">
         <% @premproducts = Product.left_joins(:favorite_products).group(:id).order("COUNT(products.user_id) DESC").uniq.last(3) %>
         <div class="carousel-inner" role="listbox" style="margin-left:auto; margin-right:auto; width:fit-content">

@@ -4,6 +4,10 @@ class Product < ApplicationRecord
   belongs_to :category, required: true
   belongs_to :material
 
+  def self.search(search)
+    where("name LIKE ? OR description LIKE ? OR name LIKE ? OR description LIKE ?", "%#{search}%", "%#{search}%", "%#{search.capitalize}%", "%#{search.capitalize}%")
+
+  end
   #carts
   has_many :favorite_products # just the 'relationships'
   has_many :favorited_by, through: :favorite_products, source: :user

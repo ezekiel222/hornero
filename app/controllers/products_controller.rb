@@ -4,7 +4,11 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.left_joins(:favorite_products).group(:id).order("COUNT(products.user_id) DESC").uniq
+    if params[:search]
+       @products = Product.search(params[:search])
+    else
+      @products = Product.all
+    end
   end
 
   # GET /products/1
