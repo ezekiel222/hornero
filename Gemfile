@@ -46,6 +46,7 @@ gem 'font-awesome-sass', '~> 5.6.1'
 gem 'bootstrap-sass-extras'
 gem "rack-timeout"
 gem "bootstrap_flash_messages", "~> 1.0.1"
+gem 'mail_form'
 
 
 group :development, :test do
