@@ -48,16 +48,9 @@
       <div class="row">
         <h1 class="precio">$<%= @product.price.round %></h1>
       </div>
+      <p class="descripcion">Si sos de Bariloche elegir "Retiro en Local"</p>
       <div class="row">
-        <% if current_user %>
-        <% if current_user.id.in?(@product.favorited_by.ids) %>
-        <%= link_to "Ya comprado", "", class:"carro-ds" %>
-        <% elsif current_user.id.in?(@product.favorited_by.ids) == false %>
-        <%= link_to "Añadir al carrito", favorite_product_path(@product, type: "favorite"), method: :put, class:"carro" %>
-        <% end %>
-        <% else %>
-        <%= link_to "Añadir al carrito", new_user_registration_path, class:"carro" %>
-        <% end %>
+        <%= link_to "Comprar Ya", "#{@product.link}", class:"carro" %>
       </div>
       <div class="row">
         <p class="descripcion"><%= @product.description %><br>Esta realizada con: <strong><%= @product.material.name %></strong></p>

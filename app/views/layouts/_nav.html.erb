@@ -1,14 +1,14 @@
 <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar bg-dark" style="position:sticky;top: 0; z-index:100">
     <ul class="navbar-nav mr-auto">
+      <% if current_user %>
+      <% @cart = current_user.favorites.length %>
+      <% end %>
       <li class="nav-item">
         <%= link_to "Hornero", root_path, class:"navbar-brand" %>
       </li>
       <% if !current_user %>
       <li class="nav-item">
         <%= link_to "Comprar", products_path, class:"nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Carrito", home_carrito_path, class:"nav-link" %>
       </li>
       <% end %>
 
@@ -21,9 +21,6 @@
       <% if current_user %>
       <li class="nav-item">
         <%= link_to "Productos", products_path, class:"nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Carrito", home_carrito_path, class:"nav-link" %>
       </li>
 
       <li class="nav-item">

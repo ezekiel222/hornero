@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_17_172901) do
+ActiveRecord::Schema.define(version: 2019_02_24_160709) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_02_17_172901) do
     t.integer "category_id"
     t.integer "user_id"
     t.integer "material_id"
+    t.string "link"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["material_id"], name: "index_products_on_material_id"
     t.index ["user_id"], name: "index_products_on_user_id"

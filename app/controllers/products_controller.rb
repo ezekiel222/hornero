@@ -88,6 +88,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :description, :price, :user_id, :category_id, :photo, :photo1, :photo2, :material_id)
+      params.require(:product).permit(:name, :description, :price, :user_id, :category_id, :photo, :photo1, :photo2, :material_id, :link)
     end
 end
