@@ -21,6 +21,5 @@ class Product < ApplicationRecord
   has_attached_file :photo2, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :photo2, content_type: /\Aimage\/.*\z/
 
-  mount_uploader :image, ImageUploader
 
 end
