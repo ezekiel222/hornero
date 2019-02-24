@@ -14,7 +14,6 @@ class Product < ApplicationRecord
 
   has_attached_file :photo, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png",  :s3_protocol => 'https',
  :s3_host_name => ENV['S3_HOST_NAME'],
-
  :storage => 's3',
  :s3_region => ENV['AWS_REGION']
   has_attached_file :photo, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
