@@ -18,11 +18,9 @@ class ProductsController < ApplicationController
     type = params[:type]
     if type == "favorite"
       current_user.favorites << @product
-      redirect_to home_carrito_path, notice: 'You favorited #{@recipe.name}'
 
     elsif type == "unfavorite"
       current_user.favorites.delete(@product)
-      redirect_back fallback_location: root_path, notice: 'Unfavorited #{@recipe.name}'
     else
       # Type missing, nothing happens
       redirect_to :back, notice: 'Nothing happened.'
