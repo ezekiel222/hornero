@@ -50,7 +50,11 @@
       </div>
       <p class="descripcion">Si sos de Bariloche elegir "Retiro en Local"</p>
       <div class="row">
+        <% if current_user %>
         <%= link_to "Comprar Ya", "#{@product.link}", class:"carro" %>
+        <% else %>
+        <%= link_to "Comprar Ya", new_user_registration_path, class:"carro" %>
+        <% end %>
       </div>
       <div class="row">
         <p class="descripcion"><%= @product.description %><br>Esta realizada con: <strong><%= @product.material.name %></strong></p>

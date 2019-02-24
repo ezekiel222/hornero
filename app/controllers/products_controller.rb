@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
     if params[:search]
        @products = Product.search(params[:search])
     else
-      @products = Product.all
+      @products = Product.left_joins(:favorite_products).group(:id).order("COUNT(products.user_id) DESC").uniq
     end
   end
 

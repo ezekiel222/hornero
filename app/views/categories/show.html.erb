@@ -4,7 +4,7 @@
       <h1 style="margin-top:20px; margin-left:auto; margin-bottom:50px;"><%= @category.name %> :</h1>
       <div class="row">
         <% @category = Category.find(params[:id]) %>
-        <% @products = Product.where(category_id: @category)%>
+        <% @products = Product.where(category_id: @category).left_joins(:favorite_products).group(:id).order("COUNT(products.user_id) DESC").uniq%>
         <% @products.each do |f| %>
         <div class="col-lg-4 col-md-6 mb-4 cd">
           <%= link_to(f) do %>
