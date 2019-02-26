@@ -60,10 +60,12 @@
         <% else %>
         <%= link_to "Añadir al carrito", new_user_registration_path, class:"carro" %>
         <% end %>
-        
+
       </div>
       <% if current_user.admin? %>
-      <li class="user"><h6><%= link_to "Eliminar",product_path(@product), :method => 'delete', data: {confirm: 'Seguro que desea eliminar el producto'} %> &nbsp&nbsp&nbsp <%= link_to "Editar", edit_product_path(@product) %></h6></li>
+      <li class="user"><h6><%= link_to "Eliminar",product_path(@product), :method => 'delete', data: {confirm: 'Seguro que desea eliminar el producto'} %>
+         &nbsp&nbsp&nbsp <%= link_to "Editar", edit_product_path(@product) %></h6></li>
+         <%else%>
       <% end %>
       <div class="row">
         <p class="descripcion"><%= @product.description %><br>Esta realizada con: <strong><%= @product.material.name %></strong></p>
