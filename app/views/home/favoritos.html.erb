@@ -25,6 +25,7 @@
       <div class="total">
         <h5>Total a pagar:</h5><h3>$<%= @product.sum(:price) %></h3>
       </div>
+      <%=link_to "Checkout", new_transaction_path, class: "btn" %>
     </ul>
 
 <% end %>

@@ -1,5 +1,8 @@
 <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar bg-dark" style="position:sticky;top: 0; z-index:100">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+       <%= link_to "Carrito", home_carrito_path, class:"nav-link" %>
+     </li>
       <% if current_user %>
       <% @cart = current_user.favorites.length %>
       <% end %>

@@ -50,11 +50,17 @@
       </div>
       <p class="descripcion">Si sos de Bariloche elegir "Retiro en Local"</p>
       <div class="row">
+
         <% if current_user %>
-        <%= link_to "Comprar Ya", "#{@product.link}", class:"carro" %>
-        <% else %>
-        <%= link_to "Comprar Ya", new_user_registration_path, class:"carro", onclick:"test" %>
+        <% if current_user.id.in?(@product.favorited_by.ids) %>
+        <%= link_to "Ya comprado", "", class:"carro-ds" %>
+        <% elsif current_user.id.in?(@product.favorited_by.ids) == false %>
+        <%= link_to "Añadir al carrito", favorite_product_path(@product, type: "favorite"), method: :put, class:"carro" %>
         <% end %>
+        <% else %>
+        <%= link_to "Añadir al carrito", new_user_registration_path, class:"carro" %>
+        <% end %>
+        
       </div>
       <% if current_user.admin? %>
       <li class="user"><h6><%= link_to "Eliminar",product_path(@product), :method => 'delete', data: {confirm: 'Seguro que desea eliminar el producto'} %> &nbsp&nbsp&nbsp <%= link_to "Editar", edit_product_path(@product) %></h6></li>
