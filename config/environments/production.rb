@@ -14,9 +14,9 @@ Rails.application.configure do
 
   gateway = Braintree::Gateway.new(
     :environment => :sandbox,
-    :merchant_id => "BRAINTREE_MERCHANT_ID",
-    :public_key => "BRAINTREE_PUBLIC_KEY",
-    :private_key => "BRAINTREE_PRIVATE_KEY",
+    :merchant_id => ENV.fetch('BRAINTREE_MERCHANT_ID'),
+    :public_key => ENV.fetch('BRAINTREE_PUBLIC_KEY'),
+    :private_key => ENV.fetch('BRAINTREE_PRIVATE_KEY'),
   )
 
   # Eager load code on boot. This eager loads most of Rails and
