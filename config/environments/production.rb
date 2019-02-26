@@ -12,6 +12,13 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
+  gateway = Braintree::Gateway.new(
+    :environment => :sandbox,
+    :merchant_id => "BRAINTREE_MERCHANT_ID",
+    :public_key => "BRAINTREE_PUBLIC_KEY",
+    :private_key => "BRAINTREE_PRIVATE_KEY",
+  )
+
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.

@@ -5,11 +5,12 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    @result = Braintree::Transaction.sale(
+    @result = gateway.transaction.sale(
               amount: current_user.favorites.sum(:price),
-              payment_method_nonce: params[:payment_method_nonce])
+              payment_method_nonce: nonce_from_the_client)
     if @result.success?
       redirect_to root_url, notice: "Congraulations! Your transaction has been successfully!"
+
     else
       flash[:alert] = "Something went wrong while processing your transaction. Please try again!"
       gon.client_token = generate_client_token
