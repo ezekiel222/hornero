@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    @result = gateway.transaction.sale(
+    @result = Braintree::Transaction.sale(
               amount: current_user.favorites.sum(:price),
               payment_method_nonce: nonce_from_the_client)
     if @result.success?
