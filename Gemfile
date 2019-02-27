@@ -47,8 +47,6 @@ gem 'bootstrap-sass-extras'
 gem "rack-timeout"
 gem "bootstrap_flash_messages", "~> 1.0.1"
 gem 'mail_form'
-gem 'braintree'
-gem 'gon'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
