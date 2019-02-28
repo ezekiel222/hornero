@@ -16,14 +16,11 @@ class ProductsController < ApplicationController
   # for current_user
   def favorite
     type = params[:type]
-    if type == "favorite"
+    if type == ""
       current_user.favorites << @product
 
     elsif type == "unfavorite"
       current_user.favorites.delete(@product)
-    else
-      # Type missing, nothing happens
-      redirect_to :back, notice: 'Nothing happened.'
     end
   end
 
