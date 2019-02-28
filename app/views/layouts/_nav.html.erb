@@ -1,11 +1,11 @@
-<header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar bg-dark" style="position:sticky;top: 0; z-index:100">
+<header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar" style="position:sticky;top: 0; z-index:100; background-color:#585a61">
     <ul class="navbar-nav mr-auto">
       <% if current_user %>
       <% @cart = current_user.favorites.length %>
       <% end %>
       <li class="nav-item">
         <%= link_to "/", class:"navbar-brand" do %>
-        <img src="https://s3-sa-east-1.amazonaws.com/hornero-recetas/products/photos/000/000/007/original/IconoB.png" width="30" height="30" alt="">
+        <img src="https://s3-sa-east-1.amazonaws.com/hornero-recetas/products/photo1s/000/000/007/original/IconoO.png" width="40" height="40" alt="">
         <% end %>
       </li>
       <% if !current_user %>
