@@ -83,6 +83,7 @@ a:hover{
 }
 .carro:hover{
   text-decoration: none;
+  color: #FFE;
   background-color: #d08701
 }
 .row .carro-ds{
@@ -197,4 +198,9 @@ a:hover{
   margin-top: 10%;
   margin-left: 10%;
   color: red;
+}
+.gracias{
+  text-align: center;
+  color: gray;
+  font-size: 20px;
 }
