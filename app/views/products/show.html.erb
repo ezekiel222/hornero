@@ -47,7 +47,6 @@
       <div class="row">
         <h1 class="precio">$<%= @product.price.round %></h1>
       </div>
-      <p class="descripcion">Si sos de Bariloche elegir "Retiro en Local"</p>
       <div class="row">
         <% if current_user %>
         <%= link_to "Comprar Ya", "#{@product.link}", class:"carro" %>
